@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://github.com/damorenor/develop/NanoGames.png?raw=true" alt="Logo" width="125" height="125">
+    <img src="https://raw.githubusercontent.com/damorenor/NanoGames/develop/NanoGames.png" alt="Logo" width="125" height="125">
 </h1>
 
 # NanoGames :fire: :video_game:
