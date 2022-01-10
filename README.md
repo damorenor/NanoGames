@@ -1,3 +1,7 @@
+<h1 align="center">
+    <img src="https://github.com/damorenor/develop/NanoGames.png?raw=true" alt="Logo" width="125" height="125">
+</h1>
+
 # NanoGames :fire: :video_game:
 
 NanoGames is a simple bundle which includes a simple collection of games made in arduino.
