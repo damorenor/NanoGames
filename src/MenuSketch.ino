@@ -14,6 +14,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #include "Button.h"
 #include "Menu.h"
 #include "Circle.h"
+#include "NanoBird.h"
 
 Button selectBtn(4);
 Button incBtn(6);
@@ -22,6 +23,7 @@ Button backBtn(3);
 
 Menu menu(display,selectBtn,incBtn,enterBtn,backBtn);
 Circle circle(display);
+NanoBird bird(display);
 
 void setup() {
   // put your setup code here, to run once:
@@ -34,6 +36,8 @@ void setup() {
   incBtn.config();
   enterBtn.config();
   backBtn.config();
+
+  bird.setup();
 
 }
 
@@ -49,5 +53,6 @@ void draw()
   display.clearDisplay();
   if(menu.page==0) menu.show();
   if(menu.page==1) circle.show();
+  if(menu.page==2) bird.show();
   display.display();
 }

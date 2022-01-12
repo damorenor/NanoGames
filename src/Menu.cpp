@@ -6,14 +6,18 @@ Menu::Menu(Adafruit_SSD1306& oled,Button& selectBtn,Button& incBtn,Button& enter
 void Menu::show()             
 {
   oled.setTextColor(WHITE);
-  oled.setCursor(35,0);
+  oled.setCursor(30,0);
   oled.print("MENU");
   //indicator
   oled.setCursor(10,selIndPosY[option]);
   oled.print("->");  
   //labels
   oled.setCursor(35,10);
-  oled.print("CIRCLE");
+  oled.print("PONG");
+  oled.setCursor(35,20);
+  oled.print("FLAPPY BIRD");
+  oled.setCursor(35,30);
+  oled.print("CREDITS");
   //press info
   oled.setCursor(5,50);
   oled.print("press enter btn..."); 
@@ -45,7 +49,7 @@ void Menu::run()  //acivate redLed blinking
       page=2;
     }    
   }
-  else if(option==1)
+  else if(option==2)
   {
     if(enterBtn.wasPressed())
     {
