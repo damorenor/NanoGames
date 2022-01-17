@@ -13,32 +13,37 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #include <ArduinoTrace.h>
 #include "Button.h"
 #include "Menu.h"
-#include "Circle.h"
+#include "Credits.h"
 #include "NanoBird.h"
+#include "NanoPong.h"
 
 Button selectBtn(4);
 Button incBtn(6);
 Button enterBtn(5);
 Button backBtn(3);
 
+bool state = false;
 Menu menu(display,selectBtn,incBtn,enterBtn,backBtn);
-Circle circle(display);
+Beeper beeper(3);
 NanoBird bird(display);
+NanoPong pong(display,beeper);
+Credits credits(display);
 
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3D)) {
-    Serial.println(F("SSD1306 allocation failed"));
-    for(;;);
-  }
+void setButtons(){
   selectBtn.config();
   incBtn.config();
   enterBtn.config();
   backBtn.config();
+}
 
-  bird.setup();
-
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;);
+  }
+  setButtons();
 }
 
 void loop() {
@@ -51,8 +56,27 @@ void loop() {
 void draw()
 {
   display.clearDisplay();
-  if(menu.page==0) menu.show();
-  if(menu.page==1) circle.show();
-  if(menu.page==2) bird.show();
+  if(menu.page==0){
+    display.setTextSize(1);
+    state=false;
+    menu.show();
+  }
+  if(menu.page==1){
+    if(!state){
+      state=true;
+      pong.setup();
+      setButtons();
+    }
+    pong.show();
+  }
+  if(menu.page==2){
+    if(!state){
+      state=true;
+      bird.setup();
+      setButtons();
+    }
+    bird.show();
+  }
+  if(menu.page==3) credits.show();
   display.display();
 }

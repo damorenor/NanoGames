@@ -7,8 +7,8 @@
     {
       "type": "wokwi-ssd1306",
       "id": "ssd1306",
-      "top": 232.51,
-      "left": 215.85,
+      "top": 235.56,
+      "left": 164.62,
       "attrs": { "i2c-address": "0x3D" }
     },
     {
@@ -28,16 +28,25 @@
     {
       "type": "wokwi-pushbutton",
       "id": "btn3",
-      "top": 98.67,
-      "left": 405.34,
+      "top": 148.17,
+      "left": 392.97,
       "attrs": { "color": "orange", "label": "inc" }
     },
     {
       "type": "wokwi-pushbutton",
       "id": "btn4",
-      "top": 86.66,
-      "left": -11.32,
+      "top": 128.44,
+      "left": -4.36,
       "attrs": { "color": "white", "label": "back" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 271.84, "left": -11.23, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 269.72, "left": 456.13, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -177.74,
+      "left": 234.55,
+      "attrs": { "volume": "0.1" }
     }
   ],
   "connections": [
@@ -52,6 +61,14 @@
     [ "btn3:1.l", "uno:6", "green", [ "h0.6", "v-45.64", "h-112.67" ] ],
     [ "btn3:2.l", "uno:GND.1", "black", [ "h-37.4", "v-81.3", "h-156.67", "v6" ] ],
     [ "btn4:1.r", "uno:3", "green", [ "v-131.63", "h279.7" ] ],
-    [ "btn4:2.r", "uno:GND.1", "black", [ "h25.03", "v-190.63", "h144" ] ]
+    [ "btn4:2.r", "uno:GND.1", "black", [ "h25.03", "v-190.63", "h144" ] ],
+    [ "pot1:VCC", "uno:5V", "red", [ "v32.97", "h85.55", "v-175.53", "h91.42", "v-4.39" ] ],
+    [ "pot1:SIG", "uno:A1", "green", [ "v38.09", "h99.15", "v-188.69", "h141.88" ] ],
+    [ "pot1:GND", "uno:GND.2", "black", [ "v43.2", "h115.93", "v-182.11", "h81.91" ] ],
+    [ "pot2:VCC", "uno:5V", "red", [ "v28.72", "h-133", "v-166.02", "h-98" ] ],
+    [ "pot2:SIG", "uno:A2", "green", [ "v19.21", "h-119.4", "v-145.54", "h-46.08" ] ],
+    [ "pot2:GND", "uno:GND.3", "black", [ "v9.71", "h-103.36", "v-101.66", "h-100.93" ] ],
+    [ "bz1:2", "uno:3", "green", [ "v18.15", "h47.41" ] ],
+    [ "uno:GND.1", "bz1:1", "black", [ "v-55.77", "h7.73" ] ]
   ]
 }

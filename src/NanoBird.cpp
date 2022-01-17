@@ -54,6 +54,7 @@ static const unsigned char PROGMEM wing_up_bmp[] =
 void NanoBird::setup()
 {
   display.setTextColor(WHITE);
+  display.setTextSize(1);
   display.clearDisplay();
   randomSeed(analogRead(0));
 }

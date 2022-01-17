@@ -3,11 +3,11 @@
 #include <Arduino.h>
 #include <Adafruit_SSD1306.h>
 
-class Circle
+class Credits
 {
   private:
   Adafruit_SSD1306& oled;
   public:
-  Circle(Adafruit_SSD1306& oled);
+  Credits(Adafruit_SSD1306& oled);
   void show();
 };
