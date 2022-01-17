@@ -24,7 +24,7 @@ The bundle includes:
 - [Pong](https://michaelteeuw.nl/post/building-pong/)
 - [Flappy Bird](https://gitlab.com/richardathome/nano-bird)
 
-##Play
+## Play
 You can try NanoGames by yourself at this [link](https://wokwi.com/arduino/projects/320375077830918738)
 
 ```cpp
